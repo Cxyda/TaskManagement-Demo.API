@@ -1,0 +1,5 @@
+@host = http://localhost
+@port = 5272
+@HostAddress = {{host}}:{{port}}
+
+GET {{HostAddress}}/api/tasks
