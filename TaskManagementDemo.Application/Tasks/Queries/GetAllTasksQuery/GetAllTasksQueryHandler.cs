@@ -1,16 +1,15 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Domain.Repositories;
 
-namespace TaskManagementDemo.Application.Tasks.GetAllTasksQuery
+namespace TaskManagementDemo.Application.Tasks.Queries.GetAllTasksQuery
 {
     internal class GetAllTasksQueryHandler(
         ILogger<GetAllTasksQueryHandler> logger,
         ITaskManagementRepository taskManagementRepository,
-        IMapper mapper) 
+        IMapper mapper)
             : IRequestHandler<GetAllTasksQuery, IEnumerable<TaskEntityDto>>
     {
         public async Task<IEnumerable<TaskEntityDto>> Handle(GetAllTasksQuery request, CancellationToken cancellationToken)

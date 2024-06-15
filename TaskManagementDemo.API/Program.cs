@@ -1,13 +1,12 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using TaskManagementDemo.API.Extensions;
+using TaskManagementDemo.API.Middlewares;
 using TaskManagementDemo.Application.Extensions;
 using TaskManagementDemo.Infrastructure.Extensions;
 using TaskManagementDemo.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication();
-builder.Services.AddControllers();
+builder.AddPresentation();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -19,6 +18,8 @@ var seeder = scope.ServiceProvider.GetRequiredService<ITaskSeeder>();
 
 await seeder.Seed();
 // Configure the HTTP request pipeline.
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

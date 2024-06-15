@@ -1,4 +1,5 @@
 ﻿
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using TaskManagementDemo.Domain.Entities;
 using TaskManagementDemo.Domain.Repositories;
@@ -12,5 +13,12 @@ internal class TaskManagementRepository(TaskManagementDbContext dbContext) : ITa
     {
         var tasks = await dbContext.Tasks.ToListAsync();
         return tasks;
+    }
+
+    public async Task<TaskEntity?> GetTaskById(int taskId)
+    {
+        var taskEntity = await dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == taskId);
+
+        return taskEntity;
     }
 }
