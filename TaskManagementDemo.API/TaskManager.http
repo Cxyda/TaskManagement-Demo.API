@@ -7,3 +7,13 @@ GET {{HostAddress}}/api/tasks
 ###
 
 GET {{HostAddress}}/api/tasks/15
+
+###
+
+POST {{HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "Title": "New Task",
+  "Description": "New Task Description"
+}

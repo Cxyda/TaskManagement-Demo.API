@@ -16,7 +16,7 @@ namespace TaskManagementDemo.Application.Tasks.Queries.GetAllTasksQuery
         {
             logger.LogInformation("Requesting all tasks...");
 
-            var allTasks = await taskManagementRepository.GetAllTasks();
+            var allTasks = await taskManagementRepository.GetAllTasksAsync();
 
             var taskDtos = mapper.Map<IEnumerable<TaskEntityDto>>(allTasks);
 

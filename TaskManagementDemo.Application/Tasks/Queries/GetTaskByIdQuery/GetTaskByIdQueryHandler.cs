@@ -16,7 +16,7 @@ public class GetTaskByIdQueryHandler(ILogger<GetTaskByIdQueryHandler> logger,
     {
         logger.LogInformation("Getting TaskEntity by id {RequestId} [{@Request}]", request.Id, request);
 
-        var taskEntity = await taskManagementRepository.GetTaskById(request.Id!.Value)
+        var taskEntity = await taskManagementRepository.GetTaskByIdAsync(request.Id!.Value)
                    ?? throw new NotFoundException(nameof(TaskEntity), request.Id!.ToString());
 
         var taskDto = mapper.Map<TaskEntityDto>(taskEntity);

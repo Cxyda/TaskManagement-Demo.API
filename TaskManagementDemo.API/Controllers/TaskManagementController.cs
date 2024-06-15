@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementDemo.Application.Dtos;
+using TaskManagementDemo.Application.Tasks.Commands.CreateTaskCommand;
 using TaskManagementDemo.Application.Tasks.Queries.GetAllTasksQuery;
 using TaskManagementDemo.Application.Tasks.Queries.GetTaskByIdQuery;
 
@@ -24,5 +24,12 @@ public class TaskManagementController(IMediator mediator) : ControllerBase
     {
         var task = await mediator.Send(new GetTaskByIdQuery(id));
         return Ok(task);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<TaskEntityDto>> Create([FromBody] CreateTaskCommand command)
+    {
+        var taskId = await mediator.Send(command);
+        return CreatedAtAction(nameof(GetById), new { id = taskId }, null);
     }
 }
