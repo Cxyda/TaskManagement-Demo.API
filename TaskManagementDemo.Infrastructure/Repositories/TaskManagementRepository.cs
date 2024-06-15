@@ -27,4 +27,9 @@ internal class TaskManagementRepository(TaskManagementDbContext dbContext) : ITa
 
         return entity.Id;
     }
+
+    public async Task SaveChangesAsync()
+    {
+        await dbContext.SaveChangesAsync();
+    }
 }

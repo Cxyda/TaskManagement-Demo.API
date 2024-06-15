@@ -17,3 +17,14 @@ Content-Type: application/json
   "Title": "New Task",
   "Description": "New Task Description"
 }
+
+###
+
+
+PATCH {{HostAddress}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "Title": "Updated Task",
+  "Description": "Updated Task Description"
+}

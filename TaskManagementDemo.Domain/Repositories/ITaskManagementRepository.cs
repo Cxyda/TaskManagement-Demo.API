@@ -7,4 +7,5 @@ public interface ITaskManagementRepository
     Task<IEnumerable<TaskEntity>> GetAllTasksAsync();
     Task<TaskEntity?> GetTaskByIdAsync(int taskId);
     Task<int> CreateAsync(TaskEntity taskEntity);
+    Task SaveChangesAsync();
 }

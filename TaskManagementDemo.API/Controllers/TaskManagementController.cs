@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.Tasks.Commands.CreateTaskCommand;
+using TaskManagementDemo.Application.Tasks.Commands.UpdateTaskCommand;
 using TaskManagementDemo.Application.Tasks.Queries.GetAllTasksQuery;
 using TaskManagementDemo.Application.Tasks.Queries.GetTaskByIdQuery;
 
@@ -31,5 +32,13 @@ public class TaskManagementController(IMediator mediator) : ControllerBase
     {
         var taskId = await mediator.Send(command);
         return CreatedAtAction(nameof(GetById), new { id = taskId }, null);
+    }
+
+    [HttpPatch("{id:int}")]
+    public async Task<ActionResult> Update([FromRoute] int id, [FromBody] UpdateTaskCommand command)
+    {
+        command.Id = id;
+        await mediator.Send(command);
+        return NoContent();
     }
 }
