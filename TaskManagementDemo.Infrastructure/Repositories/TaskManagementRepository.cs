@@ -32,4 +32,10 @@ internal class TaskManagementRepository(TaskManagementDbContext dbContext) : ITa
     {
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task DeleteAsync(TaskEntity entity)
+    {
+        dbContext.Tasks.Remove(entity);
+        await dbContext.SaveChangesAsync();
+    }
 }

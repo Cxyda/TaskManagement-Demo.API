@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.Tasks.Commands.CreateTaskCommand;
+using TaskManagementDemo.Application.Tasks.Commands.DeleteTaskCommand;
 using TaskManagementDemo.Application.Tasks.Commands.UpdateTaskCommand;
 using TaskManagementDemo.Application.Tasks.Queries.GetAllTasksQuery;
 using TaskManagementDemo.Application.Tasks.Queries.GetTaskByIdQuery;
@@ -39,6 +40,13 @@ public class TaskManagementController(IMediator mediator) : ControllerBase
     {
         command.Id = id;
         await mediator.Send(command);
+        return NoContent();
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> Delete([FromRoute] int id)
+    {
+        await mediator.Send(new DeleteTaskCommand(id));
         return NoContent();
     }
 }

@@ -28,3 +28,8 @@ Content-Type: application/json
   "Title": "Updated Task",
   "Description": "Updated Task Description"
 }
+
+###
+
+DELETE {{HostAddress}}/api/tasks/4
+
