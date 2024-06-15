@@ -2,6 +2,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Domain.Repositories;
 
 namespace TaskManagementDemo.Application.Tasks.GetAllTasksQuery

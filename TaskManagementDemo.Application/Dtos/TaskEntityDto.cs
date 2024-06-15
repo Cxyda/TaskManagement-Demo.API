@@ -1,5 +1,4 @@
-﻿
-namespace TaskManagementDemo.Application.Tasks;
+﻿namespace TaskManagementDemo.Application.Dtos;
 
 public record TaskEntityDto
 {

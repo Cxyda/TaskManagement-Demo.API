@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TaskManagementDemo.Domain.Repositories;
 using TaskManagementDemo.Infrastructure.Persistence;
 using TaskManagementDemo.Infrastructure.Repositories;
+using TaskManagementDemo.Infrastructure.Seeders;
 
 namespace TaskManagementDemo.Infrastructure.Extensions;
 
@@ -19,6 +20,7 @@ public static class ServiceCollectionExtensions
 
 
         services.AddScoped<ITaskManagementRepository, TaskManagementRepository>();
+        services.AddScoped<ITaskSeeder, TaskSeeder>();
 
     }
 }

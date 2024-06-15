@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagementDemo.Application.Tasks;
+using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.Tasks.GetAllTasksQuery;
 
 namespace TaskManagementDemo.API.Controllers;
