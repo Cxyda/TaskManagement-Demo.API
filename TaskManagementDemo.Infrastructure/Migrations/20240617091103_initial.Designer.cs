@@ -11,7 +11,7 @@ using TaskManagementDemo.Infrastructure.Persistence;
 namespace TaskManagementDemo.Infrastructure.Migrations
 {
     [DbContext(typeof(TaskManagementDbContext))]
-    [Migration("20240615151013_initial")]
+    [Migration("20240617091103_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -33,11 +33,9 @@ namespace TaskManagementDemo.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

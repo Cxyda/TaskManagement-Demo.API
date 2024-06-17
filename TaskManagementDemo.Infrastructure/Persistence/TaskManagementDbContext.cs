@@ -12,5 +12,9 @@ internal class TaskManagementDbContext(DbContextOptions<TaskManagementDbContext>
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<TaskEntity>()
+        .HasMany(e => e.SubTasks)
+        .WithOne()
+        .HasForeignKey(e => e.Id);
     }
 }
