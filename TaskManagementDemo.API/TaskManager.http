@@ -27,7 +27,7 @@ Content-Type: application/json
 {
   "Title": "Updated Task",
   "Description": "Updated Task Description",
-  "subTaskIds": [4]
+  "subTaskIds": [6]
 }
 
 ###

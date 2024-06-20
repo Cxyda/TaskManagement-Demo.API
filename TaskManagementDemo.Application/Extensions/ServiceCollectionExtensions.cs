@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TaskManagementDemo.Application.Extensions;
 
@@ -13,7 +15,8 @@ public static class ServiceCollectionExtensions
 
         services.AddAutoMapper(assembly);
 
-        services.AddHttpContextAccessor();
+        services.AddValidatorsFromAssembly(assembly).AddFluentValidationAutoValidation();
 
+        services.AddHttpContextAccessor();
     }
 }
