@@ -12,4 +12,6 @@ public interface ITaskManagementRepository
 
     Task DeleteAsync(TaskEntity entity);
 
+    bool ContainsTasksByIdAll(IEnumerable<int> taskIdCollection);
+
 }

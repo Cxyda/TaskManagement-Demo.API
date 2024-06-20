@@ -14,6 +14,4 @@ public class UpdateTaskCommand : IRequest
     public TaskStatus Status { get; set; }
     public Priority Priority { get; set; }
     public Complexity Complexity { get; set; }
-
-    public List<int> SubTaskIds { get; set; } = [];
 }

@@ -6,7 +6,7 @@ GET {{HostAddress}}/api/tasks
 
 ###
 
-GET {{HostAddress}}/api/tasks/15
+GET {{HostAddress}}/api/tasks/1
 
 ###
 
@@ -27,10 +27,27 @@ Content-Type: application/json
 {
   "Title": "Updated Task",
   "Description": "Updated Task Description",
-  "subTaskIds": [6]
+  "SubTaskIds": [6]
 }
 
 ###
 
 DELETE {{HostAddress}}/api/tasks/4
 
+###
+
+DELETE {{HostAddress}}/api/tasks/1/subtasks
+Content-Type: application/json
+
+{
+  "SubTaskIds": [4, 3]
+}
+
+###
+
+POST {{HostAddress}}/api/tasks/1/subtasks
+Content-Type: application/json
+
+{
+  "SubTaskIds": [2]
+}

@@ -6,11 +6,8 @@ namespace TaskManagementDemo.Application.Tasks.Commands.UpdateTaskCommand;
 
 public class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCommand>
 {
-    private readonly ITaskManagementRepository _taskManagementRepository;
-
-    public UpdateTaskCommandValidator(ITaskManagementRepository taskManagementRepository)
+    public UpdateTaskCommandValidator()
     {
-        _taskManagementRepository = taskManagementRepository;
 
         RuleFor(x => x.Title)
             .NotEmpty().WithMessage(TaskValidationRuleParameters.EmptyTitleErrorMessage)
@@ -27,21 +24,5 @@ public class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCommand>
 
         RuleFor(x => x.Complexity)
             .IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidComplexityErrorMessage);
-
-        RuleFor(x => x.SubTaskIds).Must(CheckExistence).WithMessage(TaskValidationRuleParameters.InvalidSubTaskIdsErrorMessage);
-    }
-
-    private bool CheckExistence(List<int> subTaskIds)
-    {
-        foreach (var subTaskId in subTaskIds)
-        {
-            var subTask = _taskManagementRepository.GetTaskByIdAsync(subTaskId).Result;
-            if (subTask == null)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 }

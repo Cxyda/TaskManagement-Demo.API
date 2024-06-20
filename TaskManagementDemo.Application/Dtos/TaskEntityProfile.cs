@@ -25,22 +25,6 @@ public class TaskEntityProfile : Profile
 
         CreateMap<CreateTaskCommand, TaskEntity>();
 
-        CreateMap<UpdateTaskCommand, TaskEntity>()
-            .ForMember(t => t.SubTasks, opt =>
-                opt.MapFrom(src => GetTaskEntitiesByIds(src)));
-    }
-
-    private List<TaskEntity> GetTaskEntitiesByIds(UpdateTaskCommand src)
-    {
-        List<TaskEntity> taskEntities = [];
-
-        src.SubTaskIds.ForEach(x =>
-        {
-            var taskEntity = _taskManagementRepository!.GetTaskByIdAsync(x).Result;
-            if (taskEntity != null)
-                taskEntities.Add(taskEntity);
-        });
-
-        return taskEntities;
+        CreateMap<UpdateTaskCommand, TaskEntity>();
     }
 }

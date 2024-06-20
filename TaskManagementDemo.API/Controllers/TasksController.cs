@@ -11,7 +11,7 @@ namespace TaskManagementDemo.API.Controllers;
 
 [ApiController]
 [Route("api/tasks")]
-public class TaskManagementController(IMediator mediator) : ControllerBase
+public class TasksController(IMediator mediator) : ControllerBase
 {
 
     [HttpGet]

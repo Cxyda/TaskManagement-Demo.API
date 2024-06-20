@@ -39,4 +39,17 @@ internal class TaskManagementRepository(TaskManagementDbContext dbContext) : ITa
         dbContext.Tasks.Remove(entity);
         await dbContext.SaveChangesAsync();
     }
+
+    public bool ContainsTasksByIdAll(IEnumerable<int> taskIdCollection)
+    {
+        foreach (var subTaskId in taskIdCollection)
+        {
+            var subTask = GetTaskByIdAsync(subTaskId).Result;
+            if (subTask == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
