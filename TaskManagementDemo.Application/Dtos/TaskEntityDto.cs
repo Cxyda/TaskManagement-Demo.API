@@ -1,4 +1,5 @@
 ﻿using TaskManagementDemo.Domain.Constants;
+using TaskManagementDemo.Domain.Entities;
 using TaskStatus = TaskManagementDemo.Domain.Constants.TaskStatus;
 
 namespace TaskManagementDemo.Application.Dtos;
@@ -14,4 +15,5 @@ public record TaskEntityDto
     public Complexity Complexity { get; set; }
 
     public List<int> SubTaskIds { get; set; } = [];
+    public int? ParentTaskId { get; set; } // Nullable to allow root tasks
 }

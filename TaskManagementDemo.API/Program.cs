@@ -1,6 +1,9 @@
-﻿using TaskManagementDemo.API.Extensions;
+﻿using AutoMapper;
+using TaskManagementDemo.API.Extensions;
 using TaskManagementDemo.API.Middlewares;
+using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.Extensions;
+using TaskManagementDemo.Domain.Repositories;
 using TaskManagementDemo.Infrastructure.Extensions;
 using TaskManagementDemo.Infrastructure.Seeders;
 
@@ -17,6 +20,9 @@ var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<ITaskSeeder>();
 
 await seeder.Seed();
+
+TaskEntityProfile.Init(scope.ServiceProvider.GetService<ITaskManagementRepository>()!);
+
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ErrorHandlingMiddleware>();
 

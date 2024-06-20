@@ -13,8 +13,12 @@ internal class TaskManagementDbContext(DbContextOptions<TaskManagementDbContext>
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<TaskEntity>()
-        .HasMany(e => e.SubTasks)
-        .WithOne()
-        .HasForeignKey(e => e.Id);
+            .HasKey(t => t.Id);
+
+        modelBuilder.Entity<TaskEntity>()
+            .HasOne(t => t.ParentTask)
+            .WithMany(t => t.SubTasks)
+            .HasForeignKey(t => t.ParentTaskId)
+            .OnDelete(DeleteBehavior.Restrict); // Prevents circular cascade delete
     }
 }
