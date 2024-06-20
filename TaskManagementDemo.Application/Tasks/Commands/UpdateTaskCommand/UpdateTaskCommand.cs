@@ -9,9 +9,9 @@ public class UpdateTaskCommand : IRequest
 {
     public int Id { get; set; }
     public string Title { get; set; } = default!;
-    public string? Description { get; set; }
+    public string? Description { get; set; } = default!;
 
-    public TaskStatus Status { get; set; }
-    public Priority Priority { get; set; }
-    public Complexity Complexity { get; set; }
+    public TaskStatus? Status { get; set; } = default!;
+    public Priority? Priority { get; set; } = default!;
+    public Complexity? Complexity { get; set; } = default!;
 }

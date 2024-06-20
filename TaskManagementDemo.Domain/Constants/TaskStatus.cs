@@ -1,5 +1,4 @@
-﻿
-namespace TaskManagementDemo.Domain.Constants;
+﻿namespace TaskManagementDemo.Domain.Constants;
 
 public enum TaskStatus : byte
 {

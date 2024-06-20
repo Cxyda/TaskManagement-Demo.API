@@ -14,15 +14,15 @@ public class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCommand>
             .MaximumLength(TaskValidationRuleParameters.MaxTitleLength).WithMessage(TaskValidationRuleParameters.MaxTitleLengthErrorMessage);
 
         RuleFor(x => x.Description)
-            .MaximumLength(TaskValidationRuleParameters.MaxDescriptionLength).WithMessage(TaskValidationRuleParameters.MaxDescriptionLengthErrorMessage);
+            .NotEmpty().MaximumLength(TaskValidationRuleParameters.MaxDescriptionLength).WithMessage(TaskValidationRuleParameters.MaxDescriptionLengthErrorMessage);
 
         RuleFor(x => x.Status)
-            .IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidStatusErrorMessage);
+            .NotEmpty().IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidStatusErrorMessage);
 
         RuleFor(x => x.Priority)
-            .IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidPriorityErrorMessage);
+            .NotEmpty().IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidPriorityErrorMessage);
 
         RuleFor(x => x.Complexity)
-            .IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidComplexityErrorMessage);
+            .NotEmpty().IsInEnum().WithMessage(TaskValidationRuleParameters.InvalidComplexityErrorMessage);
     }
 }
