@@ -7,6 +7,8 @@ This project uses the following .Net 8.0 frameworks
   - FluentValidation
   - MediatR
   - Swagger
+  - Serilog
+    
 It uses Azure DevOps CI/CD
 
 ### The project is currently work in progress but will be finished soon.
