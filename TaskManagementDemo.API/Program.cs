@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Serilog;
 using TaskManagementDemo.API.Extensions;
 using TaskManagementDemo.API.Middlewares;
 using TaskManagementDemo.Application.Dtos;
@@ -25,6 +26,8 @@ TaskEntityProfile.Init(scope.ServiceProvider.GetService<ITaskManagementRepositor
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ErrorHandlingMiddleware>();
+
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

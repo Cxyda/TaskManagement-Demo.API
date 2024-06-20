@@ -1,4 +1,5 @@
-﻿using TaskManagementDemo.API.Middlewares;
+﻿using Serilog;
+using TaskManagementDemo.API.Middlewares;
 
 namespace TaskManagementDemo.API.Extensions
 {
@@ -10,7 +11,11 @@ namespace TaskManagementDemo.API.Extensions
 
             builder.Services.AddControllers();
 
+            builder.Services.AddEndpointsApiExplorer();
+
             builder.Services.AddScoped<ErrorHandlingMiddleware>();
+
+            builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
         }
     }
 }
