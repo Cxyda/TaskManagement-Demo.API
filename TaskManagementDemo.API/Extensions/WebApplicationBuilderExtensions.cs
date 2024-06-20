@@ -10,6 +10,7 @@ namespace TaskManagementDemo.API.Extensions
             builder.Services.AddAuthentication();
 
             builder.Services.AddControllers();
+            builder.Services.AddSwaggerGen();
 
             builder.Services.AddEndpointsApiExplorer();
 
