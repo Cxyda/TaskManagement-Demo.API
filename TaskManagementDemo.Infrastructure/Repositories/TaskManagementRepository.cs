@@ -15,7 +15,8 @@ internal class TaskManagementRepository(TaskManagementDbContext dbContext) : ITa
 
     public async Task<TaskEntity?> GetTaskByIdAsync(int taskId)
     {
-        var taskEntity = await dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == taskId);
+        var taskEntity = await dbContext.Tasks.Include(t =>t.SubTasks)
+            .FirstOrDefaultAsync(x => x.Id == taskId);
 
         return taskEntity;
     }
