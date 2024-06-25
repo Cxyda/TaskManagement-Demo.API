@@ -9,13 +9,6 @@ namespace TaskManagementDemo.Application.Dtos;
 
 public class TaskEntityProfile : Profile
 {
-    private static ITaskManagementRepository? _taskManagementRepository;
-
-    public static void Init(ITaskManagementRepository taskManagementRepository)
-    {
-        _taskManagementRepository = taskManagementRepository;
-    }
-
     public TaskEntityProfile()
     {
         CreateMap<TaskEntity, TaskEntityDto>()

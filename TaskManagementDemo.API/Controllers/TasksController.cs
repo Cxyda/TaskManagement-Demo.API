@@ -15,7 +15,7 @@ public class TasksController(IMediator mediator) : ControllerBase
 {
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskEntityDto>>> GetAll([FromQuery] GetAllTasksQuery query)
+    public async Task<ActionResult<IEnumerable<TaskEntityDto>>> GetAll([FromBody] GetAllTasksQuery query)
     {
         var restaurants = await mediator.Send(query);
         return Ok(restaurants);

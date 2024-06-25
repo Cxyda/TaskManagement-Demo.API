@@ -1,7 +1,5 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-using TaskManagementDemo.Domain.Constants;
-using TaskStatus = System.Threading.Tasks.TaskStatus;
+﻿using TaskManagementDemo.Domain.Constants;
+using TaskStatus = TaskManagementDemo.Domain.Constants.TaskStatus;
 
 namespace TaskManagementDemo.Domain.Entities;
 

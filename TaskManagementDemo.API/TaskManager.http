@@ -3,6 +3,14 @@
 @HostAddress = {{host}}:{{port}}
 
 GET {{HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "SearchPhrase": "3",
+  "SortBy": "Complexity",
+  "PageNumber": 0,
+  "PageSize": 10
+}
 
 ###
 
