@@ -1,5 +1,4 @@
 ﻿using TaskManagementDemo.Domain.Constants;
-using TaskManagementDemo.Domain.Entities;
 using TaskStatus = TaskManagementDemo.Domain.Constants.TaskStatus;
 
 namespace TaskManagementDemo.Application.Dtos;
@@ -16,4 +15,6 @@ public record TaskEntityDto
 
     public List<int> SubTaskIds { get; set; } = [];
     public int? ParentTaskId { get; set; } // Nullable to allow root tasks
+
+    public string CreatorId { get; set; }
 }

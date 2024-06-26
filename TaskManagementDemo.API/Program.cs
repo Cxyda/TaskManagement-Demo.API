@@ -16,9 +16,11 @@ builder.Services.AddInfrastructure(builder.Configuration);
 var app = builder.Build();
 
 var scope = app.Services.CreateScope();
-var seeder = scope.ServiceProvider.GetRequiredService<ITaskSeeder>();
+var tasksSeeder = scope.ServiceProvider.GetRequiredService<ITasksSeeder>();
+var rolesSeeder = scope.ServiceProvider.GetRequiredService<IRolesSeeder>();
 
-await seeder.Seed();
+await tasksSeeder.Seed();
+await rolesSeeder.Seed();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ErrorHandlingMiddleware>();

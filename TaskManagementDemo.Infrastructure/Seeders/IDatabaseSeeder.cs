@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementDemo.Infrastructure.Seeders;
 
-public interface ITaskSeeder
+public interface IDatabaseSeeder
 {
     Task Seed();
 }

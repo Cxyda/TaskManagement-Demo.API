@@ -18,4 +18,5 @@ public class TaskEntity
     public int? ParentTaskId { get; set; } // Nullable to allow root tasks
     public TaskEntity? ParentTask { get; set; }
 
+    public string? CreatorId { get; set; } = default!;
 }

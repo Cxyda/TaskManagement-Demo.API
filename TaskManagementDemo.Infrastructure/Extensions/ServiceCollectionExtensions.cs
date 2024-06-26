@@ -27,7 +27,9 @@ public static class ServiceCollectionExtensions
             .AddEntityFrameworkStores<TaskManagementDbContext>();
 
         services.AddScoped<ITaskManagementRepository, TaskManagementRepository>();
-        services.AddScoped<ITaskSeeder, TaskSeeder>();
+
+        services.AddScoped<ITasksSeeder, TasksSeeder>();
+        services.AddScoped<IRolesSeeder, RolesSeeder>();
 
         services.AddAuthorizationBuilder();
     }
