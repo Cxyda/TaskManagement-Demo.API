@@ -9,7 +9,8 @@ public class CreateTaskCommandValidator : AbstractValidator<CreateTaskCommand>
     {
         RuleFor(x => x.Title)
             .NotEmpty().WithMessage(TaskValidationRuleParameters.EmptyTitleErrorMessage)
-            .MaximumLength(TaskValidationRuleParameters.MaxTitleLength).WithMessage(TaskValidationRuleParameters.MaxTitleLengthErrorMessage);
+            .Length(TaskValidationRuleParameters.MinTitleLength, TaskValidationRuleParameters.MaxTitleLength)
+            .WithMessage(TaskValidationRuleParameters.MaxTitleLengthErrorMessage);
 
         RuleFor(x => x.Description)
             .MaximumLength(TaskValidationRuleParameters.MaxDescriptionLength).WithMessage(TaskValidationRuleParameters.MaxDescriptionLengthErrorMessage);

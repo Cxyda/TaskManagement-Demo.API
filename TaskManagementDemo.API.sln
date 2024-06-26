@@ -5,11 +5,13 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementDemo.API", "TaskManagementDemo.API\TaskManagementDemo.API.csproj", "{1FD5372A-8D5D-4CBC-BE7E-99EBA75ED8B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementDemo.Infrastructure", "TaskManagementDemo.Infrastructure\TaskManagementDemo.Infrastructure.csproj", "{1291F186-3FF8-4BFD-92D8-74D566BAC3EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementDemo.Infrastructure", "TaskManagementDemo.Infrastructure\TaskManagementDemo.Infrastructure.csproj", "{1291F186-3FF8-4BFD-92D8-74D566BAC3EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementDemo.Domain", "TaskManagementDemo.Domain\TaskManagementDemo.Domain.csproj", "{D65F9BB9-3384-4BBC-8F71-2C05BA7C86E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementDemo.Domain", "TaskManagementDemo.Domain\TaskManagementDemo.Domain.csproj", "{D65F9BB9-3384-4BBC-8F71-2C05BA7C86E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementDemo.Application", "TaskManagementDemo.Application\TaskManagementDemo.Application.csproj", "{E917CBA7-A80F-4725-9E67-51395AF16314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementDemo.Application", "TaskManagementDemo.Application\TaskManagementDemo.Application.csproj", "{E917CBA7-A80F-4725-9E67-51395AF16314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementDemo.Application.Tests", "TaskManagementDemo.Application.Tests\TaskManagementDemo.Application.Tests.csproj", "{B370BB56-D449-43C0-A31F-29877F833269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E917CBA7-A80F-4725-9E67-51395AF16314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E917CBA7-A80F-4725-9E67-51395AF16314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E917CBA7-A80F-4725-9E67-51395AF16314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B370BB56-D449-43C0-A31F-29877F833269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B370BB56-D449-43C0-A31F-29877F833269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B370BB56-D449-43C0-A31F-29877F833269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B370BB56-D449-43C0-A31F-29877F833269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

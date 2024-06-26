@@ -4,6 +4,8 @@
     {
         public const string EmptyTitleErrorMessage = "Title is required.";
         public static readonly string MaxTitleLengthErrorMessage = $"Title must not exceed {MaxTitleLength} characters.";
+
+        public const int MinTitleLength = 3;
         public const int MaxTitleLength = 200;
 
         public const int MaxDescriptionLength = 2000;
