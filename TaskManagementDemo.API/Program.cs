@@ -2,6 +2,7 @@
 using TaskManagementDemo.API.Extensions;
 using TaskManagementDemo.API.Middlewares;
 using TaskManagementDemo.Application.Extensions;
+using TaskManagementDemo.Domain.Entities;
 using TaskManagementDemo.Infrastructure.Extensions;
 using TaskManagementDemo.Infrastructure.Seeders;
 
@@ -31,6 +32,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapIdentityApi<User>();
+
+app.MapGroup("api/identity")
+    .WithTags("Identity")
+    .MapIdentityApi<User>();
 
 app.UseAuthorization();
 

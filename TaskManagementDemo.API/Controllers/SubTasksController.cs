@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.SubTasks.Commands.AddSubTasksCommand;
@@ -9,6 +10,7 @@ namespace TaskManagementDemo.API.Controllers;
 
 [ApiController]
 [Route("api/tasks/{parentTaskId:int}/subTasks")]
+[Authorize]
 public class SubTasksController(IMediator mediator) : ControllerBase
 {
     [HttpPost]

@@ -1,13 +1,13 @@
 @host = http://localhost
 @port = 5272
 @HostAddress = {{host}}:{{port}}
+@Token = CfDJ8D8tKqIIw1pKhXDXIh4KveqDDSmzqOmch8DGGo3oPKKZi6A-V50HhvjQVsWpOeBMNrCL-6WpZ3B2lKHfzRr7GcyMz8E76cBZ4FymKSeRNWXWw_a5_T6bWd_13HHp3C7TDAINN5urcvSsptEuFTVENqMuDR6F2ukrBd_fdsRwqohQ4y2-Ad-TMm0GFLy_xt0mbsowYc34OCivdz3KfqnzRNYxYdjUA2ySlrvfxNkgtkXp_qSBXUAq4mAY-FMSsiDjnJ9DEcbBXrV98qoT51SkVmwZl4XhHdahGiK6A4J1cvuzRJ_CxvJzDWApRv3imoWl99-gx43WVVgluqfbxfwNznJB1hED5Mupndzgupi7VBKwf7nDkg7YvbygwFCJMrjxWNxUEybOi0KSN7ooyZPe77ywaxFEke_MWVlfwMYpnz1h6I1iuZjUjd0hQKb3Owqf0ke-hLLj7WD6IonDYGRQVc03o9-2W1L1cUM7omKwYfka5Bc2BAaZkCG-EvHtDU9U2hJ52mmnQFMec7gQz2W4ycvL8Y_Fb2VYwypyOUBZrgFutNNrwVUHel-RnnyXpCxTnNKQRvQWWGtwGSioVDsuy1EBesK4ra07Q4nynLFfZsCgrO8v9ZymNRiWRglCL3E1jm7ifa4i6bmB6wboCgahFb3GjTPVkAag3QollzUuHTZBhoCCodQ5KMRG2MPuubzxTA
 
 GET {{HostAddress}}/api/tasks
+Authorization: Bearer {{Token}}
 Content-Type: application/json
 
 {
-  "SearchPhrase": "3",
-  "SortBy": "Complexity",
   "PageNumber": 0,
   "PageSize": 10
 }
@@ -58,3 +58,26 @@ Content-Type: application/json
 {
   "SubTaskIds": [2]
 }
+
+###
+
+POST {{HostAddress}}/api/identity/login
+Authorization: Bearer {{Token}}
+Content-Type: application/json
+
+{
+  "Email": "owner@owner.com",
+  "Password" : "Password1!"
+}
+
+###
+
+POST {{HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "Email": "owner@owner.com",
+  "Password" : "Password1!"
+}
+
+###

@@ -1,8 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TaskManagementDemo.Domain.Entities;
 using TaskManagementDemo.Domain.Repositories;
+using TaskManagementDemo.Infrastructure.Authorization;
 using TaskManagementDemo.Infrastructure.Persistence;
 using TaskManagementDemo.Infrastructure.Repositories;
 using TaskManagementDemo.Infrastructure.Seeders;
@@ -18,9 +21,14 @@ public static class ServiceCollectionExtensions
             options.UseSqlServer(connectionString)
                 .EnableSensitiveDataLogging());
 
+        services.AddIdentityApiEndpoints<User>()
+            .AddRoles<IdentityRole>()
+            .AddClaimsPrincipalFactory<TasksUserClaimsPrincipalFactory>()
+            .AddEntityFrameworkStores<TaskManagementDbContext>();
 
         services.AddScoped<ITaskManagementRepository, TaskManagementRepository>();
         services.AddScoped<ITaskSeeder, TaskSeeder>();
 
+        services.AddAuthorizationBuilder();
     }
 }

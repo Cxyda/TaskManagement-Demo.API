@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementDemo.Application.Dtos;
 using TaskManagementDemo.Application.Tasks.Commands.CreateTaskCommand;
@@ -11,6 +12,7 @@ namespace TaskManagementDemo.API.Controllers;
 
 [ApiController]
 [Route("api/tasks")]
+[Authorize]
 public class TasksController(IMediator mediator) : ControllerBase
 {
 

@@ -1,10 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TaskManagementDemo.Domain.Entities;
 
 namespace TaskManagementDemo.Infrastructure.Persistence;
 
-internal class TaskManagementDbContext(DbContextOptions<TaskManagementDbContext> options) : DbContext(options)
+internal class TaskManagementDbContext(DbContextOptions<TaskManagementDbContext> options) : IdentityDbContext<User>(options)
 {
     internal DbSet<TaskEntity> Tasks { get; set; }
 
