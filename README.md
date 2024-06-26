@@ -4,6 +4,7 @@ This example project shows the implementation of a Task Management API written i
 This project uses the following .Net 8.0 frameworks, libraries and tools
   - ASP.Net Core
   - Entity Framework Core
+  - Identity
   - FluentValidation
   - MediatR
   - Swagger
